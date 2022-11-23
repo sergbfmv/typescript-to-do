@@ -14,7 +14,22 @@ const persons: User[] = [
     name: 'Марат Aляуддинов',
     age: 20,
     group: 'Музыкант',
-  }
+  },
+  {
+    name: 'Андрей Стародубов',
+    age: 31,
+    group: 'Коллеги'
+  },
+  {
+    name: 'Светлана Игнатова',
+    age: 29,
+    group: 'Семья'
+  },
+  {
+    name: 'Иван Опарин',
+    age: 31,
+    group: 'Друзья'
+  },
 ];
 
 const logPerson = (user: User) => {
