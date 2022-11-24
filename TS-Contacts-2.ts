@@ -53,13 +53,17 @@ const persons: Person[] = [
   }
 ];
 
-const isAdmin = (person: Person) => {
-  return person.type === 'admin';
-}
+const isAdmin = (person: Person): person is Admin => person.type === 'admin'
 
-const isUser = (person: Person) => {
+const isUser = (person: Person): person is User => person.type === 'user'
+
+/* const isAdmin = (person: Person) => {
+  return person.type === 'admin';
+} */
+
+/* const isUser = (person: Person) => {
   return person.type === 'user';
-}
+} */
 
 const logPerson = (person: Person) => {
   let information: string = '';
