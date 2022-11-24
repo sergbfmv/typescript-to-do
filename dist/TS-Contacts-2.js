@@ -38,6 +38,12 @@ const persons = [
         role: 'Основная'
     }
 ];
+const isAdmin = (person) => {
+    return person.type === 'admin';
+};
+const isUser = (person) => {
+    return person.type === 'user';
+};
 const logPerson = (person) => {
     let information = '';
     if (person.type === 'admin') {
@@ -48,4 +54,8 @@ const logPerson = (person) => {
     }
     console.log(` - ${person.name}, ${person.age}, ${information}`);
 };
-persons.forEach(logPerson);
+console.log('Admins:');
+persons.filter(isAdmin).forEach(logPerson);
+console.log();
+console.log('Users:');
+persons.filter(isUser).forEach(logPerson);

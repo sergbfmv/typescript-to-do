@@ -53,6 +53,14 @@ const persons: Person[] = [
   }
 ];
 
+const isAdmin = (person: Person) => {
+  return person.type === 'admin';
+}
+
+const isUser = (person: Person) => {
+  return person.type === 'user';
+}
+
 const logPerson = (person: Person) => {
   let information: string = '';
   if (person.type === 'admin') {
@@ -64,4 +72,10 @@ const logPerson = (person: Person) => {
   console.log(` - ${person.name}, ${person.age}, ${information}`);
 }
 
-persons.forEach(logPerson);
+console.log('Admins:');
+persons.filter(isAdmin).forEach(logPerson);
+
+console.log();
+
+console.log('Users:');
+persons.filter(isUser).forEach(logPerson);
