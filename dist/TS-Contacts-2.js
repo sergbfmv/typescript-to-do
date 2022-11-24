@@ -1,57 +1,38 @@
 "use strict";
-;
 const persons = [
     {
-        type: 'user',
         name: 'Иван Петров',
         age: 27,
         group: 'SEO-специалист',
     },
     {
-        type: 'user',
         name: 'Марат Aляуддинов',
         age: 20,
         group: 'Музыкант',
     },
     {
-        type: 'user',
         name: 'Андрей Стародубов',
         age: 31,
         group: 'Коллеги'
     },
     {
-        type: 'user',
         name: 'Светлана Игнатова',
         age: 29,
         group: 'Семья'
     },
     {
-        type: 'user',
         name: 'Иван Опарин',
         age: 31,
         group: 'Друзья'
     },
     {
-        type: 'admin',
         name: 'Администратор',
         age: 33,
         role: 'Основная'
     }
 ];
-const isUser = (person) => {
-    return person.type = 'user';
+const logPerson = (user) => {
+    console.log(`${user.name}, ${user.age}`);
 };
-const isAdmin = (person) => {
-    return person.type = 'admin';
-}; /* typeGuard*/
-const logPerson = (person) => {
-    let information;
-    if (person.type === 'admin') {
-        information = person.role;
-    }
-    else {
-        information = person.group;
-    }
-    console.log(`${person.name}, ${person.age}, ${information}`);
-};
+console.log('Users:');
 persons.forEach(logPerson);
