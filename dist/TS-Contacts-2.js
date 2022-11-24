@@ -38,20 +38,14 @@ const persons = [
         role: 'Основная'
     }
 ];
-const isUser = (person) => {
-    return person.type = 'user';
-};
-const isAdmin = (person) => {
-    return person.type = 'admin';
-}; /* typeGuard*/
 const logPerson = (person) => {
-    let information;
+    let information = '';
     if (person.type === 'admin') {
         information = person.role;
     }
-    else {
+    if (person.type === 'user') {
         information = person.group;
     }
-    console.log(`${person.name}, ${person.age}, ${information}`);
+    console.log(` - ${person.name}, ${person.age}, ${information}`);
 };
 persons.forEach(logPerson);

@@ -53,22 +53,15 @@ const persons: Person[] = [
   }
 ];
 
-const isUser = (person: User) => {
-  return person.type = 'user'
-}
-
-const isAdmin = (person: Admin) => {
-  return person.type = 'admin'
-}                                     /* typeGuard*/
-
 const logPerson = (person: Person) => {
-  let information: string;
+  let information: string = '';
   if (person.type === 'admin') {
     information = person.role;
-  } else {
+  }
+  if (person.type === 'user') {
     information = person.group;
   }
-  console.log(`${person.name}, ${person.age}, ${information}`);
-};
+  console.log(` - ${person.name}, ${person.age}, ${information}`);
+}
 
 persons.forEach(logPerson);
