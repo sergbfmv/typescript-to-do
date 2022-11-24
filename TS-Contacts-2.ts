@@ -1,10 +1,12 @@
-type User = {
+interface User {
+  type: 'user'
   name: string,
   age: number,
   group: string
 };
 
-type Admin = {
+interface Admin {
+  type: 'admin'
   name: string;
   age: number;
   role: string;
@@ -14,40 +16,59 @@ type Person = User | Admin;
 
 const persons: Person[] = [
   {
+    type: 'user',
     name: 'Иван Петров',
     age: 27,
     group: 'SEO-специалист',
   },
   {
+    type: 'user',
     name: 'Марат Aляуддинов',
     age: 20,
     group: 'Музыкант',
   },
   {
+    type: 'user',
     name: 'Андрей Стародубов',
     age: 31,
     group: 'Коллеги'
   },
   {
+    type: 'user',
     name: 'Светлана Игнатова',
     age: 29,
     group: 'Семья'
   },
   {
+    type: 'user',
     name: 'Иван Опарин',
     age: 31,
     group: 'Друзья'
   },
   {
+    type: 'admin',
     name: 'Администратор',
     age: 33,
     role: 'Основная'
   }
 ];
 
-const logPerson = (user: Person) => {
-  console.log(`${user.name}, ${user.age}`);
+const isUser = (person: User) => {
+  return person.type = 'user'
 }
 
-console.log('Users:');
+const isAdmin = (person: Admin) => {
+  return person.type = 'admin'
+}                                     /* typeGuard*/
+
+const logPerson = (person: Person) => {
+  let information: string;
+  if (person.type === 'admin') {
+    information = person.role;
+  } else {
+    information = person.group;
+  }
+  console.log(`${person.name}, ${person.age}, ${information}`);
+};
+
 persons.forEach(logPerson);
